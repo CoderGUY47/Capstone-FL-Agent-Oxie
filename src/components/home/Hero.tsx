@@ -15,7 +15,7 @@ export default function Hero() {
       />
 
       {/* Hero Title Matching User Reference Image Exactly */}
-      <h1 className="text-5xl sm:text-7xl md:text-6xl lg:text-7xl font-bold text-[#faf9f6] tracking-tight leading-[1.05] mb-6 max-w-5xl">
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-semibold text-[#faf9f6] tracking-tight leading-[1.05] mb-6 max-w-5xl">
         The fastest way <br />
         to{" "}
         <span className="font-[family-name:var(--font-cursive)] text-white font-normal text-[1.15em] px-1 inline-block align-baseline">
@@ -26,7 +26,7 @@ export default function Hero() {
           Grow
         </span> <br />
         your{" "}
-        <span className="bg-gradient-to-b from-[#ff7b54] via-[#ff5533] to-[#e63926] bg-clip-text text-transparent font-extrabold">
+        <span className="bg-gradient-to-b from-indigo-300 via-indigo-500 to-indigo-600 bg-clip-text text-transparent font-extrabold">
           product.
         </span>
       </h1>
