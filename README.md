@@ -1,10 +1,17 @@
-# Oxie - Personal AI Agent
+# 🚀 Oxie AI Assistant — Capstone Project
 
-> A high-performance, full-stack Personal AI Agent & AI Architecture showcase built by **CoderGUY47** using **Next.js 16 (App Router + Turbopack)**, **React 19**, **Tailwind CSS**, and **Vercel AI SDK**.
+Welcome to **Oxie AI Assistant**, a state-of-the-art AI application built with **Next.js 16 (App Router)**, **Vercel AI SDK**, **Tailwind CSS**, **Google Gemini API streaming**, and a custom **3D Glassmorphism Design System**.
 
 ---
 
-## 🌟 UI Showcase
+## 🌟 Live Preview & Testing URLs
+
+- **Homepage Landing:** [http://localhost:3000](http://localhost:3000)
+- **AI Chat Experience:** [http://localhost:3000/chat](http://localhost:3000/chat)
+
+---
+
+## 📸 UI Showcase
 
 ### 1. Landing Homepage
 ![Oxie AI Landing Homepage](./public/layouts/home-page.png)
@@ -14,67 +21,59 @@
 
 ---
 
-## ✨ Features
+## ⚡ How to Test Failure States & Features in the Web UI
 
-- 💎 **Ultra-Premium Glassmorphism Design**: Custom dark glass aesthetic with subtle rim reflections, backdrop blurs, and an Indigo theme palette.
-- ⚡ **Next.js 16 & React 19 Powered**: Built with Turbopack for lightning-fast compilation, server rendering, and zero layout shift.
-- 🤖 **Vercel AI SDK Integration**: Seamless multi-turn streaming AI conversations powered by Google Gemini models.
-- 🎨 **Editorial Typography**: Customized typography featuring **Google Sans Flex** for UI text and **Alex Brush** for calligraphic hero accents.
-- 📱 **Responsive Glass Navigation**: Floating glass capsule navigation bar, collapsible dark indigo sidebar, and standalone icon UI controls.
-- 🚀 **Full-Stack Capabilities**:
-  - Code Generation & Refactoring
-  - Bug Analysis & Diagnostic Tracing
-  - System Architecture & API Design
-  - Web Search & Documentation Retrieval
+We have built robust error handling and streaming capabilities into `http://localhost:3000/chat`:
 
----
+### 1. ⚡ Normal (200) — Happy Path
+- **Action:** Visit `http://localhost:3000/chat`, select a prompt or type a question (e.g. *"Design a clean RESTful API endpoint..."*), and click Send.
+- **Result:** Response streams token-by-token in a dark glass card with code syntax highlighting, copy, like, dislike, and timestamp actions.
 
-## 🛠️ Technology Stack
+### 2. ⚡ 429 Rate Limit
+- **Action:** Exceed model quotas or trigger rate limit errors on `/api/chat`.
+- **Result:** Displays a styled error banner with clear rate-limit feedback and a functional **Retry** action.
 
-| Category | Technology / Library |
-| :--- | :--- |
-| **Framework** | Next.js 16 (App Router, Turbopack) |
-| **UI Library** | React 19 |
-| **Styling** | Tailwind CSS v4, Custom Glassmorphism System |
-| **AI Integration** | Vercel AI SDK (`ai`), `@google/genai` |
-| **Icons & Motion** | React Icons, Lucide Icons, Framer Motion |
-| **Typography** | Google Sans Flex, Alex Brush |
+### 3. ⚡ Mid-Stream Interruptions
+- **Action:** Interrupt network connectivity during active response generation.
+- **Result:** Streams initial tokens before interrupting cleanly with an inline error notification. Partial stream content is safely preserved.
+
+### 4. ⚡ 500 Server Error
+- **Action:** Trigger invalid API key or server-side exception parameters.
+- **Result:** Displays an error banner with graceful error boundary fallback and **Retry** button.
+
+### 5. ⚡ Smooth Latency & Zero Layout Shift
+- **Action:** Send prompts requiring multi-step processing or web search logic.
+- **Result:** Displays animated thinking indicators without layout shift (CLS = 0).
 
 ---
 
-## 📁 Project Structure
+## 🎨 Theme & Typography Design System
 
-```
-agent-oxie/
-├── public/
-│   ├── favicon.ico
-│   ├── images/            # Brand logos & Oxie AI assets
-│   └── layouts/           # UI screenshots (home-page.png, chat-page.png, main-bg.png)
-├── src/
-│   ├── app/
-│   │   ├── page.tsx       # Root Landing Homepage (/)
-│   │   ├── chat/          # AI Chat Application (/chat)
-│   │   ├── layout.tsx     # Root Layout with Font & Favicon configuration
-│   │   └── api/chat/      # AI Streaming API Endpoint
-│   ├── components/
-│   │   ├── home/          # Modular Landing Page Components (Navbar, Hero)
-│   │   ├── chat/          # Chat UI (Topbar, PromptInput, MessageBubble)
-│   │   └── sidebar/       # Dark Indigo Glass Sidebar & Conversation Items
-│   └── lib/               # Utility functions & AI provider setup
-└── README.md
-```
+- **Dark Glass Engine**: Deep dark indigo background (`#0d0f17`) with backdrop blur filters and soft 3D rim reflections (`shadow-[inset_0_1px_1px_rgba(255,255,255,0.35)]`).
+- **Typography Standard**:
+  - **Body & UI Font**: `Google Sans Flex` (`--font-sans`).
+  - **Cursive Accents**: `Alex Brush` (`--font-cursive`) for hero headlines (`Build` and `Grow`).
+- **Text Palette Standard**:
+  - **Primary Headings & Content:** Pure `text-white` (`#ffffff`).
+  - **Subtext & Muted Labels:** `text-white/60` (60% white opacity).
+  - **Indigo Highlights**: `text-indigo-400` & `bg-indigo-600/30`.
+  - **Zero Gray Text**: All gray variants replaced with white opacity standards for consistent dark mode contrast.
 
 ---
 
-## 🚀 Getting Started
+## 📦 Tech Stack
 
-### 1. Prerequisites
-- **Node.js**: `v18.17.0` or higher
-- **npm**: `v9.0.0` or higher
+- **Framework:** Next.js 16.2.12 (Turbopack, App Router)
+- **AI Engine:** Vercel AI SDK (`ai`), `@google/genai` (Google Gemini 2.5 Flash)
+- **Icons:** React Icons (`bi`, `fi`, `md`, `pi`, `tb`, `vsc`, `gr`, `lu`, `fa`, `hi2`)
+- **Favicon & Brand Assets:** Oxie logo icon (`/favicon.ico`, `/icon.png`, `/images/oxie.png`)
+- **Styling:** Custom Glassmorphism, Tailwind CSS v4, Framer Motion
 
-### 2. Installation
+---
 
-Clone the repository and install dependencies:
+## 🚀 Quickstart & Setup
+
+### 1. Installation
 
 ```bash
 git clone https://github.com/CoderGUY47/-Capstone-FL-Agent-Oxie.git
@@ -82,27 +81,23 @@ cd -Capstone-FL-Agent-Oxie
 npm install
 ```
 
-### 3. Environment Configuration
+### 2. Environment Setup
 
-Create a `.env.local` file in the root directory:
+Create `.env.local` in root:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-### 4. Run Development Server
-
-Start the local development server:
+### 3. Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit [http://localhost:3000](http://localhost:3000).
 
-### 5. Production Build
-
-Validate TypeScript and build for production:
+### 4. Production Build
 
 ```bash
 npm run build
@@ -111,6 +106,7 @@ npm run start
 
 ---
 
-## 🤝 Author & License
+## 🤝 Author & Repository
 
-Built with ❤️ by **[CoderGUY47](https://github.com/CoderGUY47)**.
+- **Author:** [CoderGUY47](https://github.com/CoderGUY47)
+- **Repository:** [https://github.com/CoderGUY47/-Capstone-FL-Agent-Oxie](https://github.com/CoderGUY47/-Capstone-FL-Agent-Oxie)
