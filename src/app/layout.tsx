@@ -12,16 +12,21 @@ const gflexFont = Google_Sans_Flex({
 
 export const metadata: Metadata = {
   title: "Oxie - Personal AI Agent",
-  description:
-    "High-performance personal AI agent",
+  description: "High-performance personal AI agent",
   keywords: ["Oxie", "CoderGUY47", "AI Agent", "Personal AI", "AI Stack", "Next.js 16", "React 19", "Vercel AI SDK"],
   icons: {
-    icon: "/images/oxie.png",
+    icon: [
+      { url: "/images/oxie.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/images/oxie.png",
+    apple: "/images/oxie.png",
   },
   openGraph: {
     title: "Oxie - Personal AI Agent",
     description: "Your high-performance personal AI agent and AI stack showcase.",
     type: "website",
+    images: ["/images/oxie.png"],
   },
 };
 
@@ -32,6 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${gflexFont.variable} ${gflexFont.className} h-full antialiased`}>
+      <head>
+        <link rel="icon" href="/images/oxie.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/oxie.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/oxie.png" />
+      </head>
       <body className={`${gflexFont.className} min-h-full flex flex-col`}>
         {children}
       </body>
