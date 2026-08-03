@@ -1,12 +1,19 @@
 import { cn } from "@/lib/utils";
 import type { Metadata } from 'next';
-import { Google_Sans_Flex } from 'next/font/google';
+import { Google_Sans_Flex, Alex_Brush } from 'next/font/google';
 import './globals.css';
 
 const gflexFont = Google_Sans_Flex({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-sans',
+  display: 'swap',
+});
+
+const alexBrush = Alex_Brush({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-cursive',
   display: 'swap',
 });
 
@@ -36,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${gflexFont.variable} ${gflexFont.className} h-full antialiased`}>
+    <html lang="en" className={`${gflexFont.variable} ${alexBrush.variable} ${gflexFont.className} h-full antialiased`}>
       <head>
         <link rel="icon" href="/images/oxie.png" type="image/png" />
         <link rel="shortcut icon" href="/images/oxie.png" type="image/png" />
