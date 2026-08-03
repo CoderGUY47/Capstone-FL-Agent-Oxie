@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 /**
- * Background component using home-bg.jpg as the full-screen background image,
+ * Background component using home-bg.png as the full-screen background image,
  * layered with ambient pulsing glow orbs and a decorative SVG grid overlay.
  */
 export default function LandingBackground() {
@@ -13,7 +13,7 @@ export default function LandingBackground() {
       {/* ── Full-Screen Background Image ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="/images/home-bg.jpg"
+          src="/layouts/main-bg.png"
           alt="Landing Background"
           fill
           priority
@@ -56,23 +56,6 @@ export default function LandingBackground() {
         }}
         className="absolute -bottom-32 right-1/4 w-96 h-96 rounded-full bg-gray-800 blur-3xl pointer-events-none z-0"
       />
-
-      {/* ── Decorative Grid Overlay ── */}
-      <svg
-        width="100%"
-        height="100%"
-        viewBox="0 0 800 800"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full opacity-10 pointer-events-none z-0"
-      >
-        {Array.from({ length: 16 }).map((_, i) => (
-          <line key={`v${i}`} x1={i * 50} y1={0} x2={i * 50} y2={800} stroke="white" strokeWidth="0.5" />
-        ))}
-        {Array.from({ length: 16 }).map((_, i) => (
-          <line key={`h${i}`} y1={i * 50} x1={0} y2={i * 50} x2={800} stroke="white" strokeWidth="0.5" />
-        ))}
-      </svg>
     </>
   );
 }
